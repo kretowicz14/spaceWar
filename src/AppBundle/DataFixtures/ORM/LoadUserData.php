@@ -3,13 +3,15 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
+
+class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
      * @var ContainerInterface
@@ -46,5 +48,10 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
 
         $manager->persist($user);
         $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 10;
     }
 }

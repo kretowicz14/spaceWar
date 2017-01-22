@@ -20,35 +20,25 @@ class User extends BaseUser
 
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="points", type="integer")
      */
     private $points;
 
     /**
-     * @ORM\Column(name="last_update_points_time", type="datetime", nullable=true)
+     * @ORM\Column(name="update_points_time", type="datetime", nullable=true)
      */
-    private $lastUpdatePointsTime;
+    private $updatePointsTime;
 
+    /**
+     * One User have many Planets.
+     * @ORM\OneToMany(targetEntity="SpacePlanet", mappedBy="user")
+     */
+    private $spacePlanet;
 
     public function __construct()
     {
         parent::__construct();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastUpdatePointsTime()
-    {
-        return $this->lastUpdatePointsTime;
-    }
-
-    /**
-     * @param mixed $lastUpdatePointsTime
-     */
-    public function setLastUpdatePointsTime($lastUpdatePointsTime)
-    {
-        $this->lastUpdatePointsTime = $lastUpdatePointsTime;
+        $this->points = 0;
     }
 
     /**
@@ -67,5 +57,36 @@ class User extends BaseUser
         $this->points = $points;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSpacePlanet()
+    {
+        return $this->spacePlanet;
+    }
+
+    /**
+     * @param mixed $spacePlanet
+     */
+    public function setSpacePlanet($spacePlanet)
+    {
+        $this->spacePlanet = $spacePlanet;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatePointsTime()
+    {
+        return $this->updatePointsTime;
+    }
+
+    /**
+     * @param mixed $updatePointsTime
+     */
+    public function setUpdatePointsTime($updatePointsTime)
+    {
+        $this->updatePointsTime = $updatePointsTime;
+    }
 
 }
