@@ -9,6 +9,15 @@ A Symfony project created on January 21, 2017, 7:39 pm.
 
 
 
+v0.03 Alpha
+----------------------------------
+- create api custom new user 
+- install cors-bundle
+- add user name and surname
+- install guzzle for test post inside server php
+- do test post user form front
+
+
 v0.02 Alpha
 ----------------------------------
 - rename User Entity

@@ -18,7 +18,6 @@ class User extends BaseUser
      */
     protected $id;
 
-
     /**
      * @ORM\Column(name="points", type="integer")
      */
@@ -34,6 +33,16 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="SpacePlanet", mappedBy="user")
      */
     private $spacePlanet;
+
+    /**
+     * @ORM\Column(name="name", type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(name="surname", type="string")
+     */
+    private $surname;
 
     public function __construct()
     {
@@ -87,6 +96,38 @@ class User extends BaseUser
     public function setUpdatePointsTime($updatePointsTime)
     {
         $this->updatePointsTime = $updatePointsTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
     }
 
 }

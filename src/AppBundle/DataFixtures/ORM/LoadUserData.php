@@ -33,6 +33,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
             $user->setEmail('user_'.$i.'@gmail.com');
             $user->setEnabled(true);
             $user->setRoles(["ROLE_USER"]);
+            $user->setName('name_'.$i);
+            $user->setSurname('surname_'.$i);
 
             $manager->persist($user);
         }
@@ -45,6 +47,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setEmail('kretowicz14@gmail.com');
         $user->setEnabled(true);
         $user->setRoles(["ROLE_ADMIN"]);
+        $user->setName('Artur');
+        $user->setSurname('Piotrowski');
 
         $manager->persist($user);
         $manager->flush();
